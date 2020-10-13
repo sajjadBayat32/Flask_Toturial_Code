@@ -25,7 +25,7 @@ class Item(Resource):
             return item.json(), 200
         return {"Item not found"}, 404
 
-    @fresh_jwt_required
+    @jwt_required
     def post(self, name):
         if ItemModel.find_by_name(name):
             return (
